@@ -18,17 +18,16 @@
                         title: 'Added through mutation',
                         listId: 1,
                         order: 1,
-                        // ownerId: 1,
                     },
-                    update(store, { data: { CardAdd } }) {
-                        // const data = store.readQuery({
-                        //     query: BoardQuery,
-                        //     variables: { id: 1 }
-                        // });
+                    update(store, { data: { cardAdd } }) {
+                        const data = store.readQuery({
+                            query: BoardQuery,
+                            variables: { id: 1 }
+                        });
 
-                        // data.board.lists.find(list => list.id = 1).cards.push(CardAdd);
+                        data.board.lists.find(list => (list.id = 1)).cards.push(cardAdd);
 
-                        // store.writeQuery({ query: BoardQuery, data });
+                        store.writeQuery({ query: BoardQuery, data });
                     }
                 });
             }
