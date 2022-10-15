@@ -18,6 +18,7 @@
 <script>
     import CardAdd from "./../graphql/CardAdd.gql";
     import BoardQuery from "./../graphql/BoardWithListsAndCards.gql";
+
     export default {
         props: {
             list: Object
@@ -45,10 +46,14 @@
                             query: BoardQuery,
                             variables: { id: Number(self.list.board_id) }
                         });
+
                         data.board.lists
                             .find(list => list.id == self.list.id)
                             .cards.push(cardAdd);
+
                         store.writeQuery({ query: BoardQuery, data });
+
+                        self.$emit("added", { store, data: cardAdd });
                     }
                 });
                 this.closed();
