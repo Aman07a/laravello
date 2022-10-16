@@ -42,7 +42,7 @@
                     variables: { id: Number(this.board.id) }
                 });
 
-                const listById = () => 
+                const listById = () =>
                     data.board.lists.find(list => list.id == event.listId);
 
                 switch (event.type) {

@@ -18,7 +18,7 @@
 <script>
     import CardAdd from "./../graphql/CardAdd.gql";
     import BoardQuery from "./../graphql/BoardWithListsAndCards.gql";
-        import { EVENT_CARD_ADDED } from './../constants';
+    import { EVENT_CARD_ADDED } from './../constants';
 
     export default {
         props: {

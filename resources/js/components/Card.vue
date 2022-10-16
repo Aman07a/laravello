@@ -29,10 +29,10 @@
                         id: this.card.id
                     },
                     update(store, { data: { cardDelete } }) {
-                        self.$emit("deleted", { 
-                            store, 
-                            data: cardDelete, 
-                            type: EVENT_CARD_DELETED 
+                        self.$emit("deleted", {
+                            store,
+                            data: cardDelete,
+                            type: EVENT_CARD_DELETED
                         });
                     }
                 });
