@@ -6,15 +6,16 @@
 
         <Card v-for="card in list.cards" :key="card.id" :card="card"></Card>
 
-        <CardEditor v-if="editing" @closed="editing=false" :list="list"></CardEditor>
+        <CardEditor v-if="editing" @closed="editing=false" :list="list"
+            @added="$emit('card-added', {...$event, listId: list.id})"></CardEditor>
         <CardAddButton v-else @click="editing=true"></CardAddButton>
     </div>
 </template>
 
 <script>
-    import Card from './Card.vue';
-    import CardAddButton from './CardAddButton.vue';
-    import CardEditor from './CardEditor.vue';
+    import Card from './Card';
+    import CardAddButton from './CardAddButton';
+    import CardEditor from './CardEditor';
 
     export default {
         components: { Card, CardAddButton, CardEditor },
