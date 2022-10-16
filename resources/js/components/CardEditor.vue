@@ -7,8 +7,7 @@
 
         <div class="flex">
             <button @click="saved"
-                class="rounded-sm py-1 px-3 bg-indigo-700 text-white cursor-pointer hover:bg-indigo-600 outline-none">Add
-                Card</button>
+                class="rounded-sm py-1 px-3 bg-indigo-700 text-white cursor-pointer hover:bg-indigo-600 outline-none">{{ label }}</button>
             <button @click="closed"
                 class="py-1 px-3 ml-1 rounded-md hover:bg-gray-400 cursor-pointer text-gray-500">Cancel</button>
         </div>
@@ -17,7 +16,7 @@
 
 <script>
     export default {
-        props: ["value"],
+        props: ["value", "label"],
         mounted() {
             this.$refs.card.focus();
         },
