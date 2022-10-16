@@ -5,7 +5,8 @@
         </div>
 
         <Card v-for="card in list.cards" :key="card.id" :card="card"
-            @deleted="$emit('card-deleted', {...$event, listId: list.id})"></Card>
+            @deleted="$emit('card-deleted', {...$event, listId: list.id})"
+            @updated="$emit('card-updated', {...$event, listId: list.id})"></Card>
 
         <CardAddEditor v-if="editing" @closed="editing=false" :list="list"
             @added="$emit('card-added', {...$event, listId: list.id})"></CardAddEditor>
