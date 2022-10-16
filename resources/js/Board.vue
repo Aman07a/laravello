@@ -13,7 +13,7 @@
             </div>
             <div class="flex flex-1 items-start overflow-x-auto mx-2" v-if="board">
                 <List :list="list" v-for="list in board.lists" :key="list.id" @card-added="updateQueryCache($event)"
-                    @card-deleted="updateQueryCache($event)">
+                    @card-deleted="updateQueryCache($event)" @card-updated="updateQueryCache($event)">
                 </List>
             </div>
         </div>
@@ -23,7 +23,7 @@
 <script>
     import List from './components/List';
     import BoardQuery from "./graphql/BoardWithListsAndCards.gql";
-    import { EVENT_CARD_ADDED, EVENT_CARD_DELETED } from './constants';
+    import { EVENT_CARD_ADDED, EVENT_CARD_DELETED, EVENT_CARD_UPDATED } from './constants';
 
     export default {
         components: { List },
@@ -48,6 +48,11 @@
                 switch (event.type) {
                     case EVENT_CARD_ADDED:
                         listById().cards.push(event.data);
+                        break;
+                    case EVENT_CARD_UPDATED:
+                        listById().cards.filter(
+                            card => card.id == event.data.id).title =
+                            event.data.title;
                         break;
                     case EVENT_CARD_DELETED:
                         listById().cards = listById().cards.filter(
