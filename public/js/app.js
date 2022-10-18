@@ -63663,7 +63663,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _Board_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Board.vue */ "./resources/js/Board.vue");
 /* harmony import */ var _Login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Login.vue */ "./resources/js/Login.vue");
-/* harmony import */ var _Register_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Register.vue */ "./resources/js/Register.vue");
+/* harmony import */ var _Register_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Register.vue */ "./resources/js/Register.vue");
 
 
 
@@ -63681,7 +63681,7 @@ var routes = [{
 }, {
   path: "/register",
   name: "register",
-  component: _Register_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _Register_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes,
