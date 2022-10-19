@@ -3,7 +3,9 @@
         <div
             class="header text-white flex justify-between items-center mb-2 bg-purple-600"
         >
-            <div class="ml-2 w-1/3">x</div>
+            <div class="ml-2 w-1/3">
+                {{ isLoggedIn ? "Logged in" : "Not logged in" }}
+            </div>
             <div class="text-lg opacity-50 cursor-pointer hover:opacity-75">
                 Laravello
             </div>
@@ -43,6 +45,11 @@ import {
 
 export default {
     components: { List },
+    computed: {
+        isLoggedIn() {
+            return this.$store.state.isLoggedIn;
+        },
+    },
     apollo: {
         board: {
             query: BoardQuery,
