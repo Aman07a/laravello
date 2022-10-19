@@ -88,7 +88,7 @@ export default {
                 });
             } catch (err) {
                 console.log(gqlErrors(err));
-                this.errors = gqlErrors;
+                this.errors = gqlErrors(err);
             }
         },
     },
