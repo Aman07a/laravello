@@ -64,16 +64,20 @@ export default {
         };
     },
     methods: {
-        authenticate() {
-            this.$apollo
-                .mutate({
+        async authenticate() {
+            try {
+                await this.$apollo.mutate({
                     mutation: Login,
                     variables: {
                         email: this.email,
                         password: this.password,
                     },
-                })
-                .catch((err) => console.log("chuja!"));
+                });
+            } catch (err) {
+                console.log(err);
+            }
+
+            console.log("Hey!");
         },
     },
 };
