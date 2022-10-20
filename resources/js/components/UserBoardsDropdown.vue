@@ -31,32 +31,29 @@
                 Create new board...
             </div>
 
-            <Modal
-                :width="300"
-                :height="250"
+            <BoardAddModal
                 :show="showModal"
                 @closed="showModal = false"
-                >Hello that's a message inside the modal!</Modal
-            >
+            ></BoardAddModal>
         </DropdownMenu>
     </div>
 </template>
 
 <script>
 import DropdownMenu from "./DropdownMenu";
-import Modal from "./Modal";
+import BoardAddModal from "./BoardAddModal";
 import UserBoards from "./../graphql/UserBoards.gql";
 import { mapState } from "vuex";
 import { colorMap100, colorMap200 } from "./../utils";
 
 export default {
-    components: { DropdownMenu, Modal },
+    components: { DropdownMenu, BoardAddModal },
     apollo: {
         userBoards: {
             query: UserBoards,
             variables() {
                 return {
-                    userId: 1,
+                    userId: this.userId,
                 };
             },
             skip() {
