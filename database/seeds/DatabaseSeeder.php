@@ -4,7 +4,10 @@ use App\Card;
 use App\User;
 use App\Board;
 use App\CardList;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -64,5 +67,25 @@ class DatabaseSeeder extends Seeder
                 });
             }
         );
+
+        DB::table('users')->insert([
+            'name' => 'User',
+            'email' => 'user@gmail.com',
+            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'password' => bcrypt('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Dummy User',
+            'email' => 'dummy@gmail.com',
+            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'password' => bcrypt('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }
