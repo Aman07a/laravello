@@ -7,7 +7,7 @@ import store from "./vuex.config";
 Vue.use(VueApollo);
 
 const apolloClient = new ApolloClient({
-    uri: 'graphql',
+    uri: 'http://127.0.0.1:8000/graphql',
     headers: {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
     },
