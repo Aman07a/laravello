@@ -8,7 +8,8 @@
                 Laravello
             </div>
             <div class="mr-2 w-1/3 flex justify-end">
-                <div v-if="isLoggedIn">
+                <div v-if="isLoggedIn" class="flex items-center">
+                    <div class="text-sm mr-2">{{ name }}</div>
                     <button class="header-btn">Logout</button>
                 </div>
                 <div v-else>
@@ -53,14 +54,14 @@ import {
     EVENT_CARD_DELETED,
     EVENT_CARD_UPDATED,
 } from "./constants";
+import { mapState } from "vuex";
 
 export default {
     components: { List },
-    computed: {
-        isLoggedIn() {
-            return this.$store.state.isLoggedIn;
-        },
-    },
+    computed: mapState({
+        isLoggedIn: "isLoggedIn",
+        name: (state) => state.user.name,
+    }),
     apollo: {
         board: {
             query: BoardQuery,
