@@ -41,6 +41,8 @@
                     @card-deleted="updateQueryCache($event)"
                     @card-updated="updateQueryCache($event)"
                 ></List>
+
+                <ListAddEditor></ListAddEditor>
             </div>
         </div>
     </div>
@@ -48,6 +50,7 @@
 
 <script>
 import List from "./components/List";
+import ListAddEditor from "./components/ListAddEditor";
 import UserBoardsDropdown from "./components/UserBoardsDropdown.vue";
 import BoardQuery from "./graphql/BoardWithListsAndCards.gql";
 import Logout from "./graphql/Logout.gql";
@@ -60,7 +63,7 @@ import { mapState } from "vuex";
 import { colorMap500 } from "./utils";
 
 export default {
-    components: { List, UserBoardsDropdown },
+    components: { List, UserBoardsDropdown, ListAddEditor },
     data() {
         return {
             showBoards: false,
