@@ -10,7 +10,7 @@
             <div class="mr-2 w-1/3 flex justify-end">
                 <div v-if="isLoggedIn" class="flex items-center">
                     <div class="text-sm mr-2">{{ name }}</div>
-                    <button class="header-btn">Logout</button>
+                    <button class="header-btn" @click="logout">Logout</button>
                 </div>
                 <div v-else>
                     <button
@@ -49,6 +49,7 @@
 <script>
 import List from "./components/List";
 import BoardQuery from "./graphql/BoardWithListsAndCards.gql";
+import Logout from "./graphql/Logout.gql";
 import {
     EVENT_CARD_ADDED,
     EVENT_CARD_DELETED,
@@ -71,6 +72,15 @@ export default {
         },
     },
     methods: {
+        async logout() {
+            const response = await this.$apollo.mutate({
+                mutation: Logout,
+            });
+
+            if (response.data?.logout?.id) {
+                this.$store.dispatch("logout");
+            }
+        },
         updateQueryCache(event) {
             const data = event.store.readQuery({
                 query: BoardQuery,
