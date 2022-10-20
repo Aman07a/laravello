@@ -18,6 +18,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->insert([
+            'name' => 'User',
+            'email' => 'user@gmail.com',
+            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Dummy User',
+            'email' => 'dummy@gmail.com',
+            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
         factory(User::class, 10)->create();
 
         $board1 = Board::create([
@@ -67,25 +87,5 @@ class DatabaseSeeder extends Seeder
                 });
             }
         );
-
-        DB::table('users')->insert([
-            'name' => 'User',
-            'email' => 'user@gmail.com',
-            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
-            'remember_token' => Str::random(10),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Dummy User',
-            'email' => 'dummy@gmail.com',
-            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
-            'remember_token' => Str::random(10),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
     }
 }
